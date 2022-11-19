@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\GomezPeveriniEstefania-SPL-2C\\Entidades\\Entidades.csproj": {}
+    "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\Entidades\\Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\GomezPeveriniEstefania-SPL-2C\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\GomezPeveriniEstefania-SPL-2C\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\GomezPeveriniEstefania-SPL-2C\\Entidades\\Entidades.csproj",
+        "projectPath": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\Entidades\\Entidades.csproj",
         "packagesPath": "C:\\Users\\esgomez\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\GomezPeveriniEstefania-SPL-2C\\Entidades\\obj\\",
+        "outputPath": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\esgomez\\AppData\\Roaming\\NuGet\\NuGet.Config",

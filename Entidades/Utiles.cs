@@ -6,6 +6,7 @@
         string marca;
         float precio;
 
+        public float Precio { get => this.precio; }
         public Utiles(int unidades, string marca, float precio)
         {
             this.unidades = unidades;
