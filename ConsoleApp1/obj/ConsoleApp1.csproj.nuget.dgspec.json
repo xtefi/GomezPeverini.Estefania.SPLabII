@@ -1,0 +1,122 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\ConsoleApp1\\ConsoleApp1.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\ConsoleApp1\\ConsoleApp1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectName": "ConsoleApp1",
+        "projectPath": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\ConsoleApp1\\ConsoleApp1.csproj",
+        "packagesPath": "C:\\Users\\esgomez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\ConsoleApp1\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\esgomez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\Entidades\\Entidades.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\Entidades\\Entidades.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\Entidades\\Entidades.csproj",
+        "projectName": "Entidades",
+        "projectPath": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\Entidades\\Entidades.csproj",
+        "packagesPath": "C:\\Users\\esgomez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\Entidades\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\esgomez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
