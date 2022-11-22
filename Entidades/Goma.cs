@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Goma
+    public class Goma : Utiles
     {
+        private string forma;
+
+        public Goma(int unidades, string marca, float precio, string forma)
+            :base(unidades, marca, precio)
+        {
+            this.forma = forma;
+        }
+            
     }
 }

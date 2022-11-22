@@ -5,41 +5,66 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Xml;
+using System.IO;
 
 namespace Entidades
 {
 
-    internal class Lapiz : Utiles, IDeserializa, ISerializa
+    public class Lapiz : Utiles, IDeserializa, ISerializa
     {
         private string tipoColor;
         private string tamano;
 
-        string myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        public Lapiz(int cantidad, string marca, float precio, string tipoColor, string tamano)
+        public string TipoColor { get { return this.tipoColor; } }
+        public string Tamano { get { return this.tamano; } }
+
+
+        public Lapiz()
+        {
+
+        }
+        public Lapiz(int cantidad, string marca, float precio)
             :base(cantidad,marca, precio)
         {
-            this.tipoColor= tipoColor;
-            this.tamano= tamano;
+            this.tipoColor = "Color normal";
+            this.tamano = "Tamaño normal";
+        }
+        public Lapiz(int cantidad, string marca, float precio, string tipoColor, string tamano)
+            :this(cantidad, marca, precio)
+        {
+            this.tipoColor = tipoColor;
+            this.tamano = tamano;
         }
 
-        public void GuardarXml(object dato, string myDocumentsPath)
+
+        private string archivo = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"/lapiz.xml";
+        public void GuardarXml<T>(T objeto) where T : Lapiz
         {
-            using (XmlTextWriter xmlTextW = new XmlTextWriter(myDocumentsPath, Encoding.UTF8))
+            using (XmlTextWriter xmlTextW = new XmlTextWriter(archivo, Encoding.UTF8))
             {
-                XmlSerializer serializer = new XmlSerializer(dato.GetType());
+                XmlSerializer serializer = new XmlSerializer(typeof(T));
                 xmlTextW.Formatting = Formatting.Indented;
-                serializer.Serialize(xmlTextW, dato);
+                serializer.Serialize(xmlTextW, objeto);
             }
         }
-        public List<Lapiz> LeerXml(string myDocumentsPath)
+        public Lapiz LeerXml()
         {
-            using (XmlTextReader xmlReader = new XmlTextReader(myDocumentsPath))
+            using (XmlTextReader xmlReader = new XmlTextReader(archivo))
             {
-                List<Lapiz> listaLapices;
+                Lapiz lapiz;
                 XmlSerializer serializer = new XmlSerializer(typeof(Lapiz));
-                listaLapices = (List<Lapiz>)serializer.Deserialize(xmlReader);
-                return listaLapices;
+                lapiz = serializer.Deserialize(xmlReader) as Lapiz;
+                return lapiz;
             }
+        }
+
+        public virtual string MostrarLapices()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(base.MostrarUtiles());
+            sb.AppendLine($"Tipo de color: {this.tipoColor}");
+            sb.AppendLine($"Tamaño: {this.tamano}");
+            return sb.ToString();
         }
     }
 }

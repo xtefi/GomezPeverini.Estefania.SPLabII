@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Sacapuntas : Utiles
+    public class Sacapuntas : Utiles
     {
         private string forma;
         private bool conDeposito;

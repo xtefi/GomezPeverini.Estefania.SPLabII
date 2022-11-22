@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "3bMKGuAIZw4lXC/S3hHHL9fwwZ4kRmt9TEr7OotWYX9BgqRVtTFg3A9cQFz1CnN9/vSLy1MKzmHbw/GepM4GSg==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\54113\\Desktop\\Nueva carpeta (2)\\GomezPeverini.Estefania.SPLabII\\Consola\\Consola.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\54113\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.16\\microsoft.netcore.app.host.win-x64.5.0.16.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "El proyecto Entidades2 no es compatible con net5.0 (.NETCoreApp,Version=v5.0). El proyecto Entidades2 admite: net6.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "Entidades2",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
+}

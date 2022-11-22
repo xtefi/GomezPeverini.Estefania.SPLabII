@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "f0BxEIrBoAJnk30mimyBeBueIgygoGUHByX4G5sNGDK8Sp2uYv7f/WtqF10WO/awaK1cXpUZ2KecRO7PY4QiuQ==",
+  "dgSpecHash": "gMePGYL0qYgt097RHRiaMIuTk+gbBusiw3oIjONpZoKMvyBfLfg2QbPoeGmK4+URZF59J8loSD6GPGceUWUFog==",
   "success": true,
-  "projectFilePath": "C:\\Users\\esgomez\\OneDrive - ENDAVA\\Desktop\\c-sh\\GomezPeverini.Estefania.SPLabII\\ConsoleApp1\\ConsoleApp1.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\54113\\Desktop\\Nueva carpeta (2)\\GomezPeverini.Estefania.SPLabII\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\54113\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.16\\microsoft.netcore.app.host.win-x64.5.0.16.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal interface ISerializa
+    public interface ISerializa
     {
-        void GuardarXml(object dato, string path);
+        public void GuardarXml<T>(T objeto) where T : Lapiz;
     }
 }

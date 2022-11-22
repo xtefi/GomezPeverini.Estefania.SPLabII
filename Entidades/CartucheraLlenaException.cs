@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class CartucheraLlenaException : Exception
+    public class CartucheraLlenaException : Exception
     {
         public CartucheraLlenaException(string message) : base(message)
-        {
-
-        }
-        public CartucheraLlenaException(string message, Exception innerException) : base(message)
         {
 
         }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal interface IDeserializa
+    public interface IDeserializa
     {
-        List<Lapiz> LeerXml(string path);
+        Lapiz LeerXml();
     }
 }
