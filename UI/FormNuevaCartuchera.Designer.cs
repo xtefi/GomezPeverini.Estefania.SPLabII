@@ -39,6 +39,7 @@ namespace UI
             this.btnMostrarCartuchera = new System.Windows.Forms.Button();
             this.btnEditarCartuchera = new System.Windows.Forms.Button();
             this.btnAgregarUtiles = new System.Windows.Forms.Button();
+            this.btnVerLogs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacidadCartuchera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgdCartucheras)).BeginInit();
             this.gbxNuevaCartuchera.SuspendLayout();
@@ -48,7 +49,7 @@ namespace UI
             // 
             this.numCapacidadCartuchera.Location = new System.Drawing.Point(100, 78);
             this.numCapacidadCartuchera.Maximum = new decimal(new int[] {
-            12,
+            25,
             0,
             0,
             0});
@@ -97,7 +98,7 @@ namespace UI
             this.dgdCartucheras.Location = new System.Drawing.Point(12, 12);
             this.dgdCartucheras.Name = "dgdCartucheras";
             this.dgdCartucheras.RowTemplate.Height = 25;
-            this.dgdCartucheras.Size = new System.Drawing.Size(517, 174);
+            this.dgdCartucheras.Size = new System.Drawing.Size(347, 222);
             this.dgdCartucheras.TabIndex = 4;
             // 
             // gbxNuevaCartuchera
@@ -107,7 +108,7 @@ namespace UI
             this.gbxNuevaCartuchera.Controls.Add(this.numCapacidadCartuchera);
             this.gbxNuevaCartuchera.Controls.Add(this.lblCapacidadCartuchera);
             this.gbxNuevaCartuchera.Controls.Add(this.lblNombreCartuchera);
-            this.gbxNuevaCartuchera.Location = new System.Drawing.Point(12, 213);
+            this.gbxNuevaCartuchera.Location = new System.Drawing.Point(12, 249);
             this.gbxNuevaCartuchera.Name = "gbxNuevaCartuchera";
             this.gbxNuevaCartuchera.Size = new System.Drawing.Size(237, 169);
             this.gbxNuevaCartuchera.TabIndex = 5;
@@ -126,7 +127,7 @@ namespace UI
             // 
             // btnMostrarCartuchera
             // 
-            this.btnMostrarCartuchera.Location = new System.Drawing.Point(274, 196);
+            this.btnMostrarCartuchera.Location = new System.Drawing.Point(386, 12);
             this.btnMostrarCartuchera.Name = "btnMostrarCartuchera";
             this.btnMostrarCartuchera.Size = new System.Drawing.Size(129, 62);
             this.btnMostrarCartuchera.TabIndex = 5;
@@ -136,7 +137,7 @@ namespace UI
             // 
             // btnEditarCartuchera
             // 
-            this.btnEditarCartuchera.Location = new System.Drawing.Point(274, 277);
+            this.btnEditarCartuchera.Location = new System.Drawing.Point(386, 91);
             this.btnEditarCartuchera.Name = "btnEditarCartuchera";
             this.btnEditarCartuchera.Size = new System.Drawing.Size(129, 62);
             this.btnEditarCartuchera.TabIndex = 6;
@@ -146,19 +147,30 @@ namespace UI
             // 
             // btnAgregarUtiles
             // 
-            this.btnAgregarUtiles.Location = new System.Drawing.Point(274, 345);
+            this.btnAgregarUtiles.Location = new System.Drawing.Point(386, 172);
             this.btnAgregarUtiles.Name = "btnAgregarUtiles";
-            this.btnAgregarUtiles.Size = new System.Drawing.Size(129, 46);
+            this.btnAgregarUtiles.Size = new System.Drawing.Size(129, 62);
             this.btnAgregarUtiles.TabIndex = 7;
             this.btnAgregarUtiles.Text = "Agregar Utiles";
             this.btnAgregarUtiles.UseVisualStyleBackColor = true;
             this.btnAgregarUtiles.Click += new System.EventHandler(this.btnAgregarUtiles_Click);
             // 
+            // btnVerLogs
+            // 
+            this.btnVerLogs.Location = new System.Drawing.Point(386, 250);
+            this.btnVerLogs.Name = "btnVerLogs";
+            this.btnVerLogs.Size = new System.Drawing.Size(129, 62);
+            this.btnVerLogs.TabIndex = 8;
+            this.btnVerLogs.Text = "Ver logs";
+            this.btnVerLogs.UseVisualStyleBackColor = true;
+            this.btnVerLogs.Click += new System.EventHandler(this.btnVerLogs_Click);
+            // 
             // FormNuevaCartuchera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 403);
+            this.ClientSize = new System.Drawing.Size(536, 430);
+            this.Controls.Add(this.btnVerLogs);
             this.Controls.Add(this.btnAgregarUtiles);
             this.Controls.Add(this.btnEditarCartuchera);
             this.Controls.Add(this.btnMostrarCartuchera);
@@ -186,5 +198,6 @@ namespace UI
         private System.Windows.Forms.Button btnMostrarCartuchera;
         private System.Windows.Forms.Button btnEditarCartuchera;
         private System.Windows.Forms.Button btnAgregarUtiles;
+        private System.Windows.Forms.Button btnVerLogs;
     }
 }

@@ -16,6 +16,8 @@ namespace UI
         private Cartuchera<Utiles> c1;
         private Cartuchera<Utiles> c2;
         private Cartuchera<Utiles> c3;
+        public static FormNuevaCartuchera instancia;
+        public Cartuchera<Utiles> cartucheraAuxiliar;
 
         private List<Cartuchera<Utiles>> listaCartucheras;
         public FormNuevaCartuchera()
@@ -62,7 +64,17 @@ namespace UI
         }
         private void btnEditarCartuchera_Click(object sender, EventArgs e)
         {
-                   
+            try
+            {
+                Goma g2 = new Goma(1, "test", 50);
+                Goma g = new Goma(1, "asd", 500);
+                c1+=g2;
+                c1+=g;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void CargarDataGrid()
         {
@@ -72,9 +84,28 @@ namespace UI
 
         private void btnAgregarUtiles_Click(object sender, EventArgs e)
         {
-            FormUtiles frmUtiles = new FormUtiles();
+            try
+            {
+                cartucheraAuxiliar = (Cartuchera<Utiles>)dgdCartucheras.CurrentRow.DataBoundItem;
+                if(cartucheraAuxiliar != null)
+                {
+                    FormUtiles frmUtiles = new FormUtiles();
+                    this.Visible = false;
+                    frmUtiles.ShowDialog();
+                    this.Visible = true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Seleccione una cartuchera");
+            }
+        }
+
+        private void btnVerLogs_Click(object sender, EventArgs e)
+        {
+            FormLogs frmLogs = new FormLogs();
             this.Visible = false;
-            frmUtiles.ShowDialog();
+            frmLogs.ShowDialog();
             this.Visible = true;
         }
     }

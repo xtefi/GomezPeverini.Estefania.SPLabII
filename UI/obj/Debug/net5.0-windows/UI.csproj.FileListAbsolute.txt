@@ -26,3 +26,4 @@ C:\Users\54113\Desktop\Nueva carpeta (2)\GomezPeverini.Estefania.SPLabII\UI\obj\
 C:\Users\54113\Desktop\Nueva carpeta (2)\GomezPeverini.Estefania.SPLabII\UI\obj\Debug\net5.0-windows\UI.pdb
 C:\Users\54113\Desktop\Nueva carpeta (2)\GomezPeverini.Estefania.SPLabII\UI\obj\Debug\net5.0-windows\UI.genruntimeconfig.cache
 C:\Users\54113\Desktop\Nueva carpeta (2)\GomezPeverini.Estefania.SPLabII\UI\obj\Debug\net5.0-windows\UI.FormUtiles.resources
+C:\Users\54113\Desktop\Nueva carpeta (2)\GomezPeverini.Estefania.SPLabII\UI\obj\Debug\net5.0-windows\UI.FormLogs.resources

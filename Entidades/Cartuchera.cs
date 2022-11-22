@@ -18,7 +18,6 @@ namespace Entidades
 
         #region PROPIEDADES
         public List<Utiles> Utiles { get => this.utiles; }
-        public string Ruta { set => this.ruta = value; }
         public string Nombre { get => this.nombre; set => this.nombre = value; }
         public int Capacidad { get => this.capacidad; set => this.capacidad = value; }
         private float PrecioTotal 
@@ -40,6 +39,7 @@ namespace Entidades
             utiles = new List<Utiles>();
             this.capacidad = capacidad;
             this.nombre = nombre;
+            this.ruta = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\tickets.log";
         }
 
         public static Cartuchera<T> operator +(Cartuchera<T> c, Utiles u)
@@ -84,18 +84,16 @@ namespace Entidades
         /// </summary>
         /// <param name="datos">Datos del tipo string que se quiere guardar en el archivo.txt</param>
         public void Guardar(string datos)
-        {
-            this.ruta = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\{DateTime.Today.DayOfWeek.ToString()}_tickets.log";
+        {            
             try
             {
                 using (StreamWriter writer = new StreamWriter(ruta, true))
-                {
+                {                    
+                    writer.WriteLine($"Logs del dia: {DateTime.Now.ToString()}--------------------------------------------");
                     writer.WriteLine(datos);
-                    writer.WriteLine("-----------------------------------------------------------------------------------");
-
                 }
             }
-            catch (Exception e)
+            catch
             {
                 throw;
             }
@@ -105,26 +103,21 @@ namespace Entidades
         /// Valida que exista un archivo de texto y retorna todo su contenido. 
         /// En caso de no existir el archivo arroja una Excepcion.
         /// </summary>
-        /// <param name="datos">Datos del tipo string que fueron obtenidos del archivo.txt</param>
-        /// <returns>Retorna true si pudo leer y retornar los datos o false en caso contrario. 
-        /// En caso de fallas, arroja una Excepcion</returns>
-        public bool Leer(out string datos)
+        /// <param name="datos">Datos del tipo string que fueron obtenidos del archivo de logs</param>
+        public void Leer(out string datos)
         {
-            bool agregoInfo = false;
             datos = string.Empty;
             if (File.Exists(ruta))
             {
                 using (StreamReader reader = new StreamReader(ruta))
                 {
                     datos = reader.ReadToEnd();
-                    agregoInfo = true;
                 }
             }
             else
             {
-                throw new FileNotFoundException("No se encontró ningun archivo de Excepciones creado para leer");
+                throw new FileNotFoundException("No se encontró ningun archivo de logs para leer");
             }
-            return agregoInfo;
         }
         #endregion
     }
