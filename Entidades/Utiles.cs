@@ -23,13 +23,17 @@ namespace Entidades
             this.precio = precio;  
         }
 
-        public virtual string MostrarUtiles()
+        public virtual string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Marca: {this.marca}");
             sb.AppendLine($"Unidades: {this.unidades}");
             sb.AppendLine($"Precio: {this.precio}");
             return sb.ToString();
+        }
+        public override bool Equals(object obj)
+        {
+            return this.GetType() == obj.GetType();
         }
     }
 }

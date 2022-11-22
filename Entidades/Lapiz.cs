@@ -58,10 +58,10 @@ namespace Entidades
             }
         }
 
-        public virtual string MostrarLapices()
+        public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(base.MostrarUtiles());
+            sb.Append(base.Mostrar());
             sb.AppendLine($"Tipo de color: {this.tipoColor}");
             sb.AppendLine($"Tamaño: {this.tamano}");
             return sb.ToString();

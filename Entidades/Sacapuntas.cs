@@ -18,5 +18,15 @@ namespace Entidades
             this.conDeposito= conDeposito;
             this.material= material;
         }
+
+        public override string Mostrar()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(base.Mostrar());
+            sb.AppendLine($"Forma: {this.forma}");
+            sb.AppendLine($"Deposito: {this.conDeposito}");
+            sb.AppendLine($"Material: {this.material}");
+            return sb.ToString();
+        }
     }
 }
