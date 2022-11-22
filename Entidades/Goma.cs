@@ -9,7 +9,12 @@ namespace Entidades
     public class Goma : Utiles
     {
         private string forma;
+        private int id;
 
+        public int Id { get => this.id; }
+        public string Forma { get => this.forma; }
+
+        #region CONSTRUCTORES
         public Goma(string marca, float precio)
             :base(marca, precio)
         {
@@ -20,7 +25,12 @@ namespace Entidades
         {
             this.forma = forma;
         }
-
+        public Goma(string marca, float precio, string forma, int id)
+            : this(marca, precio, forma)
+        {
+            this.id = id;
+        }
+        #endregion
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();

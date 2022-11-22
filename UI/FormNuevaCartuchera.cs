@@ -66,8 +66,8 @@ namespace UI
         {
             try
             {
-                Goma g2 = new Goma(1, "test", 50);
-                Goma g = new Goma(1, "asd", 500);
+                Goma g2 = new Goma("test", 50);
+                Goma g = new Goma("asd", 500);
                 c1+=g2;
                 c1+=g;
             }

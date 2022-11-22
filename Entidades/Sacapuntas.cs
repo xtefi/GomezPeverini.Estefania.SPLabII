@@ -11,6 +11,14 @@ namespace Entidades
         private string forma;
         private bool conDeposito;
         private string material;
+        private int id;
+
+        public string Forma { get => this.forma; }
+        public string Material { get => this.material; }
+        public int Id { get => id; }
+        public bool ConDeposito { get => conDeposito; }
+
+        #region CONSTRUCTORES
         public Sacapuntas(string marca, float precio, string forma, bool conDeposito, string material)
             :base(marca, precio)
         {
@@ -18,7 +26,12 @@ namespace Entidades
             this.conDeposito= conDeposito;
             this.material= material;
         }
-
+        public Sacapuntas(string marca, float precio, string forma, bool conDeposito, string material, int id)
+            : this(marca, precio, forma, conDeposito, material)
+        {
+            this.id = id;
+        }
+        #endregion
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();

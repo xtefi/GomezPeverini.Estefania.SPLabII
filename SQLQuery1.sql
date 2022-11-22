@@ -32,7 +32,7 @@ insert into Lapices (marca, precio, color, tamano) values
 ('Faber Castell', 15, 'Verde', '2B'),
 ('Faber Castell', 12, 'Rojo', '2B'),
 ('Faber Castell', 27, 'Azul', '2B'),
-('Staedtler', 340, 'Negro', '4B');
+('Staedtler', 1, 'Negro', '4B');
 
 --Insertar Gomas
 insert into Gomas(marca, precio, forma) values

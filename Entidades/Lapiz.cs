@@ -14,11 +14,12 @@ namespace Entidades
 
     public class Lapiz : Utiles, IDeserializa, ISerializa
     {
-        private string tipoColor;
+        private string color;
         private string tamano;
+        private int id;
         private Archivador archivador;
 
-        public string TipoColor { get { return this.tipoColor; } }
+        public string Color { get { return this.color; } }
         public string Tamano { get { return this.tamano; } }      
 
         public Lapiz()
@@ -28,14 +29,20 @@ namespace Entidades
         public Lapiz(string marca, float precio)
             :base(marca, precio)
         {
-            this.tipoColor = "Color normal";
-            this.tamano = "Tamaño normal";
+            this.color = "Color negro";
+            this.tamano = "Tamaño 2B";
         }
-        public Lapiz(string marca, float precio, string tipoColor, string tamano)
+        public Lapiz(string marca, float precio, string color, string tamano)
             :this(marca, precio)
         {
-            this.tipoColor = tipoColor;
+            this.color = color;
             this.tamano = tamano;
+        }
+
+        public Lapiz(string marca, float precio, string color, string tamano, int id)
+            : this(marca, precio, color, tamano)
+        {
+            this.id = id;
         }
 
 
@@ -86,7 +93,7 @@ namespace Entidades
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(base.Mostrar());
-            sb.AppendLine($"Tipo de color: {this.tipoColor}");
+            sb.AppendLine($"Tipo de color: {this.color}");
             sb.AppendLine($"Tamaño: {this.tamano}");
             return sb.ToString();
         }
