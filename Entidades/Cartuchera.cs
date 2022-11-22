@@ -13,7 +13,8 @@ namespace Entidades
         private List<Utiles> utiles;
         private int capacidad;
         private string nombre;
-        private string ruta;
+        public Datos.Archivador archivador;
+
         public Action<string> delegadoCartucheraLlena;
 
         #region PROPIEDADES
@@ -39,7 +40,7 @@ namespace Entidades
             utiles = new List<Utiles>();
             this.capacidad = capacidad;
             this.nombre = nombre;
-            this.ruta = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\tickets.log";
+            archivador = new Datos.Archivador($"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\tickets.log");
         }
 
         public static Cartuchera<T> operator +(Cartuchera<T> c, Utiles u)
@@ -49,7 +50,7 @@ namespace Entidades
             {
                 if (aux >= 500 || (aux + u.Precio) > 500)
                 {
-                    c.delegadoCartucheraLlena = c.Guardar;
+                    c.delegadoCartucheraLlena = c.archivador.Guardar;
                     c.delegadoCartucheraLlena.Invoke(c.MostrarCartuchera());
                     throw new CartucheraLlenaException("La cartuchera está llena");                    
                 }
@@ -79,46 +80,6 @@ namespace Entidades
             return sb.ToString();
         }
 
-        /// <summary>
-        /// Escribe datos del tipo string en un archivo de logs. En caso de no existir el archivo, lo crea.
-        /// </summary>
-        /// <param name="datos">Datos del tipo string que se quiere guardar en el archivo.txt</param>
-        public void Guardar(string datos)
-        {            
-            try
-            {
-                using (StreamWriter writer = new StreamWriter(ruta, true))
-                {                    
-                    writer.WriteLine($"Logs del dia: {DateTime.Now.ToString()}--------------------------------------------");
-                    writer.WriteLine(datos);
-                }
-            }
-            catch
-            {
-                throw;
-            }
-        }
-        #region ARCHIVOS
-        /// <summary>
-        /// Valida que exista un archivo de texto y retorna todo su contenido. 
-        /// En caso de no existir el archivo arroja una Excepcion.
-        /// </summary>
-        /// <param name="datos">Datos del tipo string que fueron obtenidos del archivo de logs</param>
-        public void Leer(out string datos)
-        {
-            datos = string.Empty;
-            if (File.Exists(ruta))
-            {
-                using (StreamReader reader = new StreamReader(ruta))
-                {
-                    datos = reader.ReadToEnd();
-                }
-            }
-            else
-            {
-                throw new FileNotFoundException("No se encontró ningun archivo de logs para leer");
-            }
-        }
-        #endregion
+
     }
 }

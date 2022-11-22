@@ -11,8 +11,8 @@ namespace Entidades
         private string forma;
         private bool conDeposito;
         private string material;
-        public Sacapuntas(int unidades, string marca, float precio, string forma, bool conDeposito, string material)
-            :base(unidades, marca, precio)
+        public Sacapuntas(string marca, float precio, string forma, bool conDeposito, string material)
+            :base(marca, precio)
         {
             this.forma= forma;
             this.conDeposito= conDeposito;

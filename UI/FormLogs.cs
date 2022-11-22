@@ -8,17 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using Entidades.Datos;
 
 namespace UI
 {
     public partial class FormLogs : Form
     {
-        Cartuchera<Utiles> cartuchera;
+        Archivador archivador = new Archivador($"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\tickets.log");
         private string datos;
         public FormLogs()
         {
             InitializeComponent();
-            cartuchera = new Cartuchera<Utiles>("a",1);
             MostrarLogs();
         }
 
@@ -26,7 +26,7 @@ namespace UI
         {
             try
             {
-                cartuchera.Leer(out datos);
+                archivador.Leer(out datos);
                 rtbxLogs.Text = datos;
             }
             catch(Exception ex)

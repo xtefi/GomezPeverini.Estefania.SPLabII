@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{8080F8A8-16ED-4125-904F-7255A277FF97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{8080F8A8-16ED-4125-904F-7255A277FF97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{96E888B8-30C7-46DE-8A65-C44A0A37876E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{2A8024B5-7C64-4942-ADB0-3E221EBA7D67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{2A8024B5-7C64-4942-ADB0-3E221EBA7D67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{8080F8A8-16ED-4125-904F-7255A277FF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8080F8A8-16ED-4125-904F-7255A277FF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8080F8A8-16ED-4125-904F-7255A277FF97}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96E888B8-30C7-46DE-8A65-C44A0A37876E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96E888B8-30C7-46DE-8A65-C44A0A37876E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96E888B8-30C7-46DE-8A65-C44A0A37876E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96E888B8-30C7-46DE-8A65-C44A0A37876E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2A8024B5-7C64-4942-ADB0-3E221EBA7D67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2A8024B5-7C64-4942-ADB0-3E221EBA7D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A8024B5-7C64-4942-ADB0-3E221EBA7D67}.Release|Any CPU.ActiveCfg = Release|Any CPU

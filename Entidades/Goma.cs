@@ -10,13 +10,13 @@ namespace Entidades
     {
         private string forma;
 
-        public Goma(int unidades, string marca, float precio)
-            :base(unidades, marca, precio)
+        public Goma(string marca, float precio)
+            :base(marca, precio)
         {
             this.forma = "Rectangular";
         }
-        public Goma(int unidades, string marca, float precio, string forma)
-            :base(unidades, marca, precio)
+        public Goma(string marca, float precio, string forma)
+            :base(marca, precio)
         {
             this.forma = forma;
         }
