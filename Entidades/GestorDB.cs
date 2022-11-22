@@ -16,21 +16,26 @@ namespace Entidades
             cadenaConexion = @"Server=.\SQLEXPRESS;Database=Libreria;Trusted_Connection=True;";
         }
 
-        public static void Delete(Utiles util, int id)
+        public static void Delete(Utiles selected, int id)
         {
             string query = string.Empty;
+            if (selected is Lapiz)
+                query = $"DELETE FROM Lapices WHERE id = @id;";
+            else if (selected is Goma)
+                query = $"DELETE FROM Gomas WHERE id = @id;";
+            else
+                query = $"DELETE FROM Sacapuntas WHERE id = @id;";
             try
             {
-                if (util is Lapiz)
-                    query = $"DELETE FROM Lapices WHERE Id=@id;";
-                else if (util is Goma)
-                    query = $"DELETE FROM Gomas WHERE Id=@id;";
-                else
-                    query = $"DELETE FROM Sacapuntas WHERE WHERE Id=@id;";
                 using (SqlConnection conexion = new SqlConnection(GestorDB.cadenaConexion))
                 {
                     SqlCommand cmd = new SqlCommand(query, conexion);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.CommandText = query;
                     conexion.Open();
+                    cmd.ExecuteNonQuery();
+
                 }
 
             }
@@ -104,7 +109,7 @@ namespace Entidades
             List<Goma> datos = new List<Goma>();
             try
             {
-                string query = "SELECT * FROM Sacapuntas";
+                string query = "SELECT * FROM Gomas";
                 using (SqlConnection conexion = new SqlConnection(GestorDB.cadenaConexion))
                 {
                     SqlCommand cmd = new SqlCommand(query, conexion);

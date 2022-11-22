@@ -19,8 +19,9 @@ namespace Entidades
         private int id;
         private Archivador archivador;
 
-        public string Color { get { return this.color; } }
-        public string Tamano { get { return this.tamano; } }      
+        public int Id { get => this.id; }
+        public string Color { get => this.color; }
+        public string Tamano { get => this.tamano; }      
 
         public Lapiz()
         {

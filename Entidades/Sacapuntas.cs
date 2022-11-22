@@ -13,9 +13,9 @@ namespace Entidades
         private string material;
         private int id;
 
+        public int Id { get => id; }
         public string Forma { get => this.forma; }
         public string Material { get => this.material; }
-        public int Id { get => id; }
         public bool ConDeposito { get => conDeposito; }
 
         #region CONSTRUCTORES

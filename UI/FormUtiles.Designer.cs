@@ -37,6 +37,7 @@ namespace UI
             this.rbtSacapuntas = new System.Windows.Forms.RadioButton();
             this.rbtLapices = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEliminaUtil = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgdUtilesDisponibles)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -64,7 +65,7 @@ namespace UI
             // dgdUtilesDisponibles
             // 
             this.dgdUtilesDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgdUtilesDisponibles.Location = new System.Drawing.Point(14, 318);
+            this.dgdUtilesDisponibles.Location = new System.Drawing.Point(14, 304);
             this.dgdUtilesDisponibles.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgdUtilesDisponibles.Name = "dgdUtilesDisponibles";
             this.dgdUtilesDisponibles.RowTemplate.Height = 25;
@@ -124,11 +125,22 @@ namespace UI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Escoja útil para cargar:";
             // 
+            // btnEliminaUtil
+            // 
+            this.btnEliminaUtil.Location = new System.Drawing.Point(635, 491);
+            this.btnEliminaUtil.Name = "btnEliminaUtil";
+            this.btnEliminaUtil.Size = new System.Drawing.Size(108, 53);
+            this.btnEliminaUtil.TabIndex = 11;
+            this.btnEliminaUtil.Text = "Eliminar util seleccionado";
+            this.btnEliminaUtil.UseVisualStyleBackColor = true;
+            this.btnEliminaUtil.Click += new System.EventHandler(this.btnEliminaUtil_Click);
+            // 
             // FormUtiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 540);
+            this.ClientSize = new System.Drawing.Size(755, 549);
+            this.Controls.Add(this.btnEliminaUtil);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgdUtilesDisponibles);
             this.Controls.Add(this.lblContiene);
@@ -157,5 +169,6 @@ namespace UI
         private System.Windows.Forms.RadioButton rbtSacapuntas;
         private System.Windows.Forms.RadioButton rbtLapices;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnEliminaUtil;
     }
 }
