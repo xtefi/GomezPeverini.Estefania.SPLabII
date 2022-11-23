@@ -376,7 +376,7 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(760, 563);
+            this.ClientSize = new System.Drawing.Size(760, 394);
             this.Controls.Add(this.btnConfirmaModificacion);
             this.Controls.Add(this.btnEditarUtilSeleccionado);
             this.Controls.Add(this.gbxSacapuntas);

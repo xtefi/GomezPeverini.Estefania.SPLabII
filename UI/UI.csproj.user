@@ -7,9 +7,6 @@
     <Compile Update="FormNuevaCartuchera.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormNuevoUtil.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormUtiles.cs">
       <SubType>Form</SubType>
     </Compile>

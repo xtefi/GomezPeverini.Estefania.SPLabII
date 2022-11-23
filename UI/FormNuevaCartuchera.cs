@@ -16,8 +16,6 @@ namespace UI
         private Cartuchera<Utiles> c1;
         private Cartuchera<Utiles> c2;
         private Cartuchera<Utiles> c3;
-        public static FormNuevaCartuchera instancia;
-        public Cartuchera<Utiles> cartucheraAuxiliar;
 
         private List<Cartuchera<Utiles>> listaCartucheras;
         public FormNuevaCartuchera()
@@ -84,21 +82,10 @@ namespace UI
 
         private void btnAgregarUtiles_Click(object sender, EventArgs e)
         {
-            try
-            {
-                cartucheraAuxiliar = (Cartuchera<Utiles>)dgdCartucheras.CurrentRow.DataBoundItem;
-                if(cartucheraAuxiliar != null)
-                {
-                    FormUtiles frmUtiles = new FormUtiles();
-                    this.Visible = false;
-                    frmUtiles.ShowDialog();
-                    this.Visible = true;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Seleccione una cartuchera");
-            }
+            FormUtiles frmUtiles = new FormUtiles();
+            this.Visible = false;
+            frmUtiles.ShowDialog();
+            this.Visible = true;
         }
 
         private void btnVerLogs_Click(object sender, EventArgs e)
@@ -108,5 +95,65 @@ namespace UI
             frmLogs.ShowDialog();
             this.Visible = true;
         }
+
+        private void btnAgregarUtil_Click(object sender, EventArgs e)
+        {
+            Cartuchera<Utiles> cartuchera = dgdCartucheras.SelectedRows[0].DataBoundItem as Cartuchera<Utiles>;
+            Lapiz lapiz;
+            Goma goma;
+            Sacapuntas sacapuntas;
+            try
+            {
+                if (rbtVerLapices.Checked is true)
+                {
+                    lapiz = dgdUtilesDisponibles.SelectedRows[0].DataBoundItem as Lapiz;
+                    if(lapiz != null && cartuchera != null)
+                    {
+                        cartuchera += lapiz;
+                        richTextBox1.Text = cartuchera.MostrarCartuchera();
+                    }
+                }
+                else if (rbtVerGomas.Checked is true)
+                {
+                    goma = dgdUtilesDisponibles.SelectedRows[0].DataBoundItem as Goma;
+                    if (goma != null && cartuchera != null)
+                    {
+                        cartuchera += goma;
+                        richTextBox1.Text = cartuchera.MostrarCartuchera();
+                    }
+                }
+                else
+                {
+                    sacapuntas = dgdUtilesDisponibles.SelectedRows[0].DataBoundItem as Sacapuntas;
+                    if (sacapuntas != null && cartuchera != null)
+                    {
+                        cartuchera += sacapuntas;
+                        richTextBox1.Text = cartuchera.MostrarCartuchera();
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        #region CARGA DE DATOS
+
+        private void rbtVerGomas_CheckedChanged_1(object sender, EventArgs e)
+        {
+            dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
+        }
+        private void rbtVerSacapuntas_CheckedChanged_1(object sender, EventArgs e)
+        {
+            dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();
+        }
+        private void rbtVerLapices_CheckedChanged(object sender, EventArgs e)
+        {
+            dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
+        }
+        #endregion
+
     }
 }

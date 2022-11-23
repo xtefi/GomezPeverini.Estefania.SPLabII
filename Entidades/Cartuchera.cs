@@ -74,7 +74,19 @@ namespace Entidades
             sb.AppendLine($"Precio total: {this.PrecioTotal}");
             foreach (Utiles item in this.utiles)
             {
-                sb.AppendLine($"");
+                if(item is Lapiz)
+                {
+                    sb.AppendLine($"-------Lápiz------");
+                }
+
+                else if(item is Sacapuntas)
+                {
+                    sb.AppendLine($"----Sacapuntas---");
+                }
+                else
+                {
+                    sb.AppendLine($"-------Goma------");
+                }
                 sb.AppendLine($"{item.Mostrar()}");           
             }
             return sb.ToString();

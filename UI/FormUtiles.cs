@@ -13,13 +13,13 @@ namespace UI
 {
     public partial class FormUtiles : Form
     {
-        GestorDB db = new GestorDB();
         public FormUtiles()
         {
             InitializeComponent();
             LimpiarGroupBoxes();
         }
 
+        #region CARGA DE DATOS
         private void rbtLapices_CheckedChanged(object sender, EventArgs e)
         {
             dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
@@ -34,7 +34,9 @@ namespace UI
         {
             dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
         }
+        #endregion
 
+        #region ELIMINAR UTIL
         private void btnEliminaUtil_Click(object sender, EventArgs e)
         {
             //DataGridViewRow selectedRow = dgdUtilesDisponibles.Rows[0];
@@ -59,7 +61,9 @@ namespace UI
             }
 
         }
+        #endregion
 
+        #region AGREGAR NUEVO UTIL
         private void btnNuevoUtil_Click(object sender, EventArgs e)
         {
             LimpiarGroupBoxes();
@@ -113,6 +117,10 @@ namespace UI
 
             LimpiarGroupBoxes();
         }
+
+        #endregion
+
+        #region EDITAR UTIL
         private void btnEditarUtilSeleccionado_Click(object sender, EventArgs e)
         {
             LimpiarGroupBoxes();
@@ -196,6 +204,7 @@ namespace UI
             }
         }
 
+        #endregion
         private void LimpiarGroupBoxes()
         {
             gbxUtiles.Visible = false;
