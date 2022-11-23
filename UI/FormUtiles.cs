@@ -85,24 +85,32 @@ namespace UI
             Lapiz lapiz;
             Goma goma;
             Sacapuntas sacapuntas;
-            if (rbtGomas.Checked is true)
+            try
             {
-                goma = new Goma(tbxMarca.Text, (float)Convert.ToDouble(tbxPrecio.Text), tbxFormaGoma.Text);
-                GestorDB.AltaGoma(goma);
-                dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
+                if (rbtGomas.Checked is true)
+                {
+                    goma = new Goma(tbxMarca.Text, (float)Convert.ToDouble(tbxPrecio.Text), tbxFormaGoma.Text);
+                    GestorDB.AltaGoma(goma);
+                    dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
+                }
+                else if (rbtSacapuntas.Checked is true)
+                {
+                    sacapuntas = new Sacapuntas(tbxMarca.Text, (float)Convert.ToDouble(tbxPrecio.Text), tbxFormaSacapuntas.Text, chbxDeposito.Checked, tbxMaterialSacapuntas.Text);
+                    GestorDB.AltaSacapuntas(sacapuntas);
+                    dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();
+                }
+                else
+                {
+                    lapiz = new Lapiz(tbxMarca.Text, (float)Convert.ToDouble(tbxPrecio.Text), tbxColorLapiz.Text, tbxTamanoLapiz.Text);
+                    GestorDB.AltaLapiz(lapiz);
+                    dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
+                }
             }
-            else if (rbtSacapuntas.Checked is true)
+            catch(Exception ex)
             {
-                sacapuntas = new Sacapuntas(tbxMarca.Text, (float)Convert.ToDouble(tbxPrecio.Text), tbxFormaSacapuntas.Text, chbxDeposito.Checked ,tbxMaterialSacapuntas.Text );
-                GestorDB.AltaSacapuntas(sacapuntas);
-                dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();
+                MessageBox.Show(ex.Message);
             }
-            else
-            {
-                lapiz = new Lapiz(tbxMarca.Text, (float)Convert.ToDouble(tbxPrecio.Text), tbxColorLapiz.Text, tbxTamanoLapiz.Text);
-                GestorDB.AltaLapiz(lapiz);
-                dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
-            }
+
             LimpiarGroupBoxes();
         }
         private void btnEditarUtilSeleccionado_Click(object sender, EventArgs e)
@@ -115,17 +123,77 @@ namespace UI
             if (rbtGomas.Checked is true)
             {
                 gbxGoma.Visible = true;
+                goma = (Goma)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                tbxMarca.Text = goma.Marca;
+                tbxPrecio.Text = goma.Precio.ToString();
+                tbxFormaGoma.Text = goma.Forma;
             }
             else if (rbtSacapuntas.Checked is true)
             {
                 gbxSacapuntas.Visible = true;
+                sacapuntas =(Sacapuntas)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                tbxMarca.Text = sacapuntas.Marca;
+                tbxPrecio.Text = sacapuntas.Precio.ToString();
+                tbxMaterialSacapuntas.Text = sacapuntas.Material;
+                tbxFormaSacapuntas.Text = sacapuntas.Forma;
+                chbxDeposito.Checked = sacapuntas.ConDeposito;
             }
             else if (rbtLapices.Visible is true)
             {
                 gbxLapiz.Visible = true;
+                lapiz = (Lapiz)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                tbxMarca.Text = lapiz.Marca;
+                tbxPrecio.Text = lapiz.Precio.ToString();
+                tbxColorLapiz.Text = lapiz.Color;
+                tbxTamanoLapiz.Text = lapiz.Tamano;
+
             }
             else
                 MessageBox.Show("Seleccione un útil para operar");
+        }
+        private void btnConfirmaModificacion_Click(object sender, EventArgs e)
+        {
+            Lapiz lapiz;
+            Goma goma;
+            Sacapuntas sacapuntas;
+            try
+            {
+                if (rbtGomas.Checked is true)
+                {
+                    goma = (Goma)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                    goma.Marca = tbxMarca.Text;
+                    goma.Precio = (float)Convert.ToDouble(tbxPrecio.Text);
+                    goma.Forma = tbxFormaGoma.Text;
+                    GestorDB.ActualizarGomas(goma, goma.Id);
+                    dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
+                }
+                else if (rbtSacapuntas.Checked is true)
+                {
+                    sacapuntas = (Sacapuntas)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                    sacapuntas.Marca = tbxMarca.Text;
+                    sacapuntas.Precio = (float)Convert.ToDouble(tbxPrecio.Text);
+                    sacapuntas.Material = tbxMaterialSacapuntas.Text;
+                    sacapuntas.ConDeposito = chbxDeposito.Checked;
+                    sacapuntas.Forma = tbxFormaSacapuntas.Text;
+                    GestorDB.ActualizarSacapuntas(sacapuntas, sacapuntas.Id);
+                    dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();
+                }
+                else
+                {
+                    lapiz = (Lapiz)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                    lapiz.Marca = tbxMarca.Text;
+                    lapiz.Precio = (float)Convert.ToDouble(tbxPrecio.Text);
+                    lapiz.Color = tbxColorLapiz.Text;
+                    lapiz.Tamano = tbxTamanoLapiz.Text;
+                    GestorDB.ActualizarLapiz(lapiz, lapiz.Id);
+                    dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
+                }
+                LimpiarGroupBoxes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void LimpiarGroupBoxes()

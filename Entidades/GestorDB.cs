@@ -248,7 +248,7 @@ namespace Entidades
 
         public static void ActualizarSacapuntas(Sacapuntas sacapuntas, int id)
         {
-            string query = "update Sacapuntas set marca=@marca, precio=@precio, forma=@forma, conDeposito=@conDeposito, material=@material, where id = @id";
+            string query = "update Sacapuntas set marca=@marca, precio=@precio, forma=@forma, conDeposito=@conDeposito, material=@material where id = @id";
             try
             {
                 using (SqlConnection conexion = new SqlConnection(cadenaConexion))

@@ -59,6 +59,7 @@ namespace UI
             this.tbxFormaSacapuntas = new System.Windows.Forms.TextBox();
             this.lblFormaSacapuntas = new System.Windows.Forms.Label();
             this.btnEditarUtilSeleccionado = new System.Windows.Forms.Button();
+            this.btnConfirmaModificacion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgdUtilesDisponibles)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gbxUtiles.SuspendLayout();
@@ -205,9 +206,9 @@ namespace UI
             this.btnConfirmar.BackColor = System.Drawing.Color.Wheat;
             this.btnConfirmar.Location = new System.Drawing.Point(604, 277);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(142, 92);
+            this.btnConfirmar.Size = new System.Drawing.Size(142, 49);
             this.btnConfirmar.TabIndex = 14;
-            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.Text = "Confirmar alta";
             this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
@@ -359,12 +360,24 @@ namespace UI
             this.btnEditarUtilSeleccionado.UseVisualStyleBackColor = false;
             this.btnEditarUtilSeleccionado.Click += new System.EventHandler(this.btnEditarUtilSeleccionado_Click);
             // 
+            // btnConfirmaModificacion
+            // 
+            this.btnConfirmaModificacion.BackColor = System.Drawing.Color.Wheat;
+            this.btnConfirmaModificacion.Location = new System.Drawing.Point(604, 332);
+            this.btnConfirmaModificacion.Name = "btnConfirmaModificacion";
+            this.btnConfirmaModificacion.Size = new System.Drawing.Size(142, 49);
+            this.btnConfirmaModificacion.TabIndex = 21;
+            this.btnConfirmaModificacion.Text = "Confirmar modificación";
+            this.btnConfirmaModificacion.UseVisualStyleBackColor = false;
+            this.btnConfirmaModificacion.Click += new System.EventHandler(this.btnConfirmaModificacion_Click);
+            // 
             // FormUtiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
             this.ClientSize = new System.Drawing.Size(760, 563);
+            this.Controls.Add(this.btnConfirmaModificacion);
             this.Controls.Add(this.btnEditarUtilSeleccionado);
             this.Controls.Add(this.gbxSacapuntas);
             this.Controls.Add(this.btnConfirmar);
@@ -428,5 +441,6 @@ namespace UI
         private System.Windows.Forms.CheckBox chbxDeposito;
         private System.Windows.Forms.Label lblConDeposito;
         private System.Windows.Forms.Button btnEditarUtilSeleccionado;
+        private System.Windows.Forms.Button btnConfirmaModificacion;
     }
 }

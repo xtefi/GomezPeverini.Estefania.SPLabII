@@ -20,21 +20,15 @@ namespace Entidades
         private Archivador archivador;
 
         public int Id { get => this.id; }
-        public string Color { get => this.color; }
-        public string Tamano { get => this.tamano; }      
+        public string Color { get => this.color; set => this.color = value; }
+        public string Tamano { get => this.tamano; set => this.tamano = value; }      
 
         public Lapiz()
         {
             
         }
-        public Lapiz(string marca, float precio)
-            :base(marca, precio)
-        {
-            this.color = "Color negro";
-            this.tamano = "Tamaño 2B";
-        }
         public Lapiz(string marca, float precio, string color, string tamano)
-            :this(marca, precio)
+            :base(marca, precio)
         {
             this.color = color;
             this.tamano = tamano;

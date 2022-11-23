@@ -14,9 +14,9 @@ namespace Entidades
         private int id;
 
         public int Id { get => id; }
-        public string Forma { get => this.forma; }
-        public string Material { get => this.material; }
-        public bool ConDeposito { get => conDeposito; }
+        public string Forma { get => this.forma; set => this.forma = value; }
+        public string Material { get => this.material; set => this.material = value; }
+        public bool ConDeposito { get => conDeposito; set => this.conDeposito = value; }
 
         #region CONSTRUCTORES
         public Sacapuntas(string marca, float precio, string forma, bool conDeposito, string material)

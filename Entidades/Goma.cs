@@ -12,7 +12,7 @@ namespace Entidades
         private int id;
 
         public int Id { get => this.id; }
-        public string Forma { get => this.forma; }
+        public string Forma { get => this.forma; set => this.forma = value; }
 
         #region CONSTRUCTORES
         public Goma(string marca, float precio)
@@ -21,7 +21,7 @@ namespace Entidades
             this.forma = "Rectangular";
         }
         public Goma(string marca, float precio, string forma)
-            :base(marca, precio)
+            :this(marca, precio)
         {
             this.forma = forma;
         }
