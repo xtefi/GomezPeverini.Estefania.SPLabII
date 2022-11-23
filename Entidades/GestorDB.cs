@@ -15,7 +15,7 @@ namespace Entidades
         {
             cadenaConexion = @"Server=.\SQLEXPRESS;Database=Libreria;Trusted_Connection=True;";
         }
-
+        #region ELIMINAR
         public static void Delete(Utiles selected, int id)
         {
             string query = string.Empty;
@@ -44,6 +44,7 @@ namespace Entidades
                 throw ex;
             }
         }
+        #endregion
 
         #region LECTORES
         public static List<Lapiz> LeerLapiz()
@@ -133,5 +134,166 @@ namespace Entidades
         }
         #endregion
 
+        #region ALTAS
+
+        public static void AltaLapiz(Lapiz lapiz)
+        {
+            string query = "insert into Lapices (marca, precio, color, tamano) values (@marca, @precio, @color, @tamano)";
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("marca", lapiz.Marca);
+                cmd.Parameters.AddWithValue("precio", lapiz.Precio);
+                cmd.Parameters.AddWithValue("color", lapiz.Color);
+                cmd.Parameters.AddWithValue("tamano", lapiz.Tamano);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+        public static void AltaGoma(Goma goma)
+        {
+            string query = "insert into Gomas (marca, precio, forma) values (@marca, @precio, @forma)";
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("marca", goma.Marca);
+                cmd.Parameters.AddWithValue("precio", goma.Precio);
+                cmd.Parameters.AddWithValue("forma", goma.Forma);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+        public static void AltaSacapuntas(Sacapuntas sacapuntas)
+        {
+            string query = "insert into Sacapuntas (marca, precio, forma, conDeposito, material) values (@marca, @precio, @forma, @conDeposito, @material)";
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("marca", sacapuntas.Marca);
+                cmd.Parameters.AddWithValue("precio", sacapuntas.Precio);
+                cmd.Parameters.AddWithValue("forma", sacapuntas.Forma);
+                cmd.Parameters.AddWithValue("conDeposito", sacapuntas.ConDeposito);
+                cmd.Parameters.AddWithValue("material", sacapuntas.Material);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+        #endregion
+
+        #region MODIFICACIONES
+
+        public static void ActualizarLapiz(Lapiz lapiz, int id)
+        {
+            string query = "update Lapices set marca=@marca, precio=@precio, color=@color, tamano=@tamano where id = @id";
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                {
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.Parameters.AddWithValue("marca", lapiz.Marca);
+                    cmd.Parameters.AddWithValue("precio", lapiz.Precio);
+                    cmd.Parameters.AddWithValue("color", lapiz.Color);
+                    cmd.Parameters.AddWithValue("tamano", lapiz.Tamano);
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public static void ActualizarSacapuntas(Sacapuntas sacapuntas, int id)
+        {
+            string query = "update Sacapuntas set marca=@marca, precio=@precio, forma=@forma, conDeposito=@conDeposito, material=@material, where id = @id";
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                {
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.Parameters.AddWithValue("marca", sacapuntas.Marca);
+                    cmd.Parameters.AddWithValue("precio", sacapuntas.Precio);
+                    cmd.Parameters.AddWithValue("forma", sacapuntas.Forma);
+                    cmd.Parameters.AddWithValue("conDeposito", sacapuntas.ConDeposito);
+                    cmd.Parameters.AddWithValue("material", sacapuntas.Material);
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public static void ActualizarGomas(Goma goma, int id)
+        {
+            string query = "update Gomas set marca=@marca, precio=@precio, forma=@forma where id = @id";
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                {
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.Parameters.AddWithValue("marca", goma.Marca);
+                    cmd.Parameters.AddWithValue("precio", goma.Precio);
+                    cmd.Parameters.AddWithValue("forma", goma.Forma);
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
+
 }
+
