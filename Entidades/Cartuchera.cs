@@ -20,16 +20,22 @@ namespace Entidades
         #region PROPIEDADES
         public List<Utiles> Utiles { get => this.utiles; }
         public string Nombre { get => this.nombre; set => this.nombre = value; }
+        /// <summary>
+        /// Establece la capacidad máxima en 25 útiles por cartuchera
+        /// </summary>
         public int Capacidad 
         { 
             get => this.capacidad;
             set {
-                if(value < 25)
+                if(value < 26)
                 {
                     this.capacidad = value;
                 }
             } 
         }
+        /// <summary>
+        /// Devuelve el precio total de la cartuchera
+        /// </summary>
         private float PrecioTotal 
         { 
             get
@@ -47,11 +53,17 @@ namespace Entidades
         public Cartuchera(string nombre, int capacidad)
         {
             utiles = new List<Utiles>();
-            this.capacidad = capacidad;
+            this.Capacidad = capacidad;
             this.nombre = nombre;
             archivador = new Datos.Archivador($"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\tickets.log");
         }
 
+        /// <summary>
+        /// Agrega un útil a la cartuchera siempre y cuando no sobrepase el monto ni las unidades permitidas
+        /// </summary>
+        /// <param name="c">Cartuchera donde se agrega el útil</param>
+        /// <param name="u">útil para agregar</param>
+        /// <returns>Cartuchera si agrega - Excepción si falla más creación de log si supera monto establecido</returns>
         public static Cartuchera<T> operator +(Cartuchera<T> c, Utiles u)
         {
             float aux= c.PrecioTotal;
@@ -75,7 +87,10 @@ namespace Entidades
             }            
             return c;
         }
-
+        /// <summary>
+        /// Muestra información de un objeto cartuchera
+        /// </summary>
+        /// <returns>string con datos</returns>
         public string MostrarCartuchera()
         {
             StringBuilder sb = new StringBuilder();

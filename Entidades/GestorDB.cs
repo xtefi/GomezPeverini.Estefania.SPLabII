@@ -39,9 +39,8 @@ namespace Entidades
                 }
 
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
             }
         }
         #endregion

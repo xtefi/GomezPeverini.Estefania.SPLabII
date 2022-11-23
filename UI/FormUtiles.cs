@@ -210,20 +210,41 @@ namespace UI
         #region SERIALIZANDO LAPIZ
         private void btnSerializaXml_Click(object sender, EventArgs e)
         {
-            CargarLapiz();
-            lapizAux.GuardarXml(lapizAux);
+            try
+            {
+                CargarLapiz();
+                lapizAux.GuardarXml(lapizAux);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnDeserealizaXml_Click(object sender, EventArgs e)
         {
-            lapizAux = lapizAux.LeerXml();
-            MessageBox.Show($"Lapiz deseralizado *** \n {lapizAux.Mostrar()}");
+            try
+            {
+                lapizAux = lapizAux.LeerXml();
+                MessageBox.Show($"Lapiz deseralizado *** \n {lapizAux.Mostrar()}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSerializaJson_Click(object sender, EventArgs e)
         {
-            CargarLapiz();
-            lapizAux.GuardarJson(lapizAux);
+            try
+            {
+                CargarLapiz();
+                lapizAux.GuardarJson(lapizAux);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnDeseralizaJson_Click(object sender, EventArgs e)
@@ -237,7 +258,6 @@ namespace UI
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
         private void CargarLapiz()
         {

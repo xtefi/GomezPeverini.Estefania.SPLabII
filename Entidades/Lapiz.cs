@@ -18,13 +18,14 @@ namespace Entidades
         private string tamano;
         private int id;
         private Archivador archivador;
-        private static string ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/lapiz.xml";
+        private static string ruta;
 
         public int Id { get => this.id; }
         public string Color { get => this.color; set => this.color = value; }
         public string Tamano { get => this.tamano; set => this.tamano = value; }      
 
         public Lapiz()
+            :this("Generico", 1, "Generico", "Generico")
         {
             
         }
@@ -33,6 +34,7 @@ namespace Entidades
         {
             this.color = color;
             this.tamano = tamano;
+            ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/lapiz.xml";
         }
 
         public Lapiz(string marca, float precio, string color, string tamano, int id)
@@ -41,7 +43,11 @@ namespace Entidades
             this.id = id;
         }
 
-    
+        /// <summary>
+        /// Guarda 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="objeto"></param>
         public void GuardarXml<T>(T objeto) where T : Lapiz
         {
             try
