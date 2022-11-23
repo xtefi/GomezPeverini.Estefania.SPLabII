@@ -18,6 +18,7 @@ namespace Entidades
         private string tamano;
         private int id;
         private Archivador archivador;
+        private static string ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/lapiz.xml";
 
         public int Id { get => this.id; }
         public string Color { get => this.color; set => this.color = value; }
@@ -40,25 +41,38 @@ namespace Entidades
             this.id = id;
         }
 
-
-        private string archivo = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"/lapiz.xml";
+    
         public void GuardarXml<T>(T objeto) where T : Lapiz
         {
-            using (XmlTextWriter xmlTextW = new XmlTextWriter(archivo, Encoding.UTF8))
+            try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
-                xmlTextW.Formatting = Formatting.Indented;
-                serializer.Serialize(xmlTextW, objeto);
+                using (XmlTextWriter xmlTextW = new XmlTextWriter(ruta, Encoding.UTF8))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(T));
+                    xmlTextW.Formatting = Formatting.Indented;
+                    serializer.Serialize(xmlTextW, objeto);
+                }
+            }
+            catch
+            {
+                throw;
             }
         }
         public Lapiz LeerXml()
         {
-            using (XmlTextReader xmlReader = new XmlTextReader(archivo))
+            try
             {
-                Lapiz lapiz;
-                XmlSerializer serializer = new XmlSerializer(typeof(Lapiz));
-                lapiz = serializer.Deserialize(xmlReader) as Lapiz;
-                return lapiz;
+                using (XmlTextReader xmlReader = new XmlTextReader(ruta))
+                {
+                    Lapiz lapiz;
+                    XmlSerializer serializer = new XmlSerializer(typeof(Lapiz));
+                    lapiz = serializer.Deserialize(xmlReader) as Lapiz;
+                    return lapiz;
+                }
+            }
+            catch
+            {
+                throw;
             }
         }
         public void GuardarJson<T>(T objeto) where T : Lapiz
@@ -73,18 +87,32 @@ namespace Entidades
                 throw;
             }
         }
-    ///// <summary>
-    ///// Lee archivos en formato JSON
-    ///// </summary>
-    ///// <param name="path"></param>
-    ///// <returns></returns>
-    //public T Leer(string path)
-    //{
-    //    string json = Archivador.Leer(path);
-    //    return JsonSerializer.Deserialize<T>(json);
-    //}
+        /// <summary>
+        /// Lee archivos en formato JSON
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public Lapiz LeerJson()
+        {
+            string json = string.Empty;
+            try
+            {
+                using (StreamReader sr = new StreamReader($"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\lapiz.json"))
+                {
+                    while (!sr.EndOfStream) // mientras no sea el fin del archivo
+                    {
+                        json += $"{sr.ReadLine()}\n"; // leo y lo concateno
+                    }
+                    return JsonSerializer.Deserialize<Lapiz>(json);
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
-    public override string Mostrar()
+        public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(base.Mostrar());

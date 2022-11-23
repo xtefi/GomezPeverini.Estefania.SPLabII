@@ -16,15 +16,14 @@ namespace UI
         private Cartuchera<Utiles> c1;
         private Cartuchera<Utiles> c2;
         private Cartuchera<Utiles> c3;
-
         private List<Cartuchera<Utiles>> listaCartucheras;
         public FormNuevaCartuchera()
         {
             InitializeComponent();
             listaCartucheras = new List<Cartuchera<Utiles>>();
-            c1 = new Cartuchera<Utiles>("Cartuchera de Bryan", 7);
-            c2 = new Cartuchera<Utiles>("Cartuchera de morde", 4);
-            c3 = new Cartuchera<Utiles>("asd", 5);
+            c1 = new Cartuchera<Utiles>("Cartuchera de Banban", 7);
+            c2 = new Cartuchera<Utiles>("Cartuchera de Mordecai", 14);
+            c3 = new Cartuchera<Utiles>("Cartuchera de Ito", 15);
             listaCartucheras.Add(c1);
             listaCartucheras.Add(c2);
             listaCartucheras.Add(c3);
@@ -52,7 +51,6 @@ namespace UI
             try
             {                
                 Cartuchera<Utiles> selected = (Cartuchera<Utiles>)dgdCartucheras.CurrentRow.DataBoundItem;
-                //dgdCartucheras.SelectedRows[0].DataBoundItem as Cartuchera<Utiles>;
                 MessageBox.Show(selected.MostrarCartuchera());
             }
             catch
@@ -143,15 +141,37 @@ namespace UI
 
         private void rbtVerGomas_CheckedChanged_1(object sender, EventArgs e)
         {
-            dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
+            try
+            {
+                dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void rbtVerSacapuntas_CheckedChanged_1(object sender, EventArgs e)
         {
-            dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();
+            try
+            {
+                dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
         private void rbtVerLapices_CheckedChanged(object sender, EventArgs e)
         {
-            dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
+            try
+            {
+                dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
 

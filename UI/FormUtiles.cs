@@ -13,6 +13,7 @@ namespace UI
 {
     public partial class FormUtiles : Form
     {
+        private Lapiz lapizAux;
         public FormUtiles()
         {
             InitializeComponent();
@@ -205,6 +206,53 @@ namespace UI
         }
 
         #endregion
+
+        #region SERIALIZANDO LAPIZ
+        private void btnSerializaXml_Click(object sender, EventArgs e)
+        {
+            CargarLapiz();
+            lapizAux.GuardarXml(lapizAux);
+        }
+
+        private void btnDeserealizaXml_Click(object sender, EventArgs e)
+        {
+            lapizAux = lapizAux.LeerXml();
+            MessageBox.Show($"Lapiz deseralizado *** \n {lapizAux.Mostrar()}");
+        }
+
+        private void btnSerializaJson_Click(object sender, EventArgs e)
+        {
+            CargarLapiz();
+            lapizAux.GuardarJson(lapizAux);
+        }
+
+        private void btnDeseralizaJson_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lapizAux = lapizAux.LeerJson();
+                MessageBox.Show($"Lapiz deseralizado *** \n {lapizAux.Mostrar()}");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        private void CargarLapiz()
+        {
+            try
+            {
+                if (rbtLapices.Checked == true)
+                    lapizAux = dgdUtilesDisponibles.SelectedRows[0].DataBoundItem as Lapiz;
+            }
+            catch
+            {
+                MessageBox.Show("Error al cargar el lápiz");
+            }
+           
+        }
+        #endregion
         private void LimpiarGroupBoxes()
         {
             gbxUtiles.Visible = false;
@@ -218,7 +266,5 @@ namespace UI
             tbxFormaGoma.Text = string.Empty;
             tbxMaterialSacapuntas.Text = string.Empty;
         }
-
-
     }
 }

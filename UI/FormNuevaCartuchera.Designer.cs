@@ -254,6 +254,7 @@ namespace UI
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.Color.SkyBlue;
             this.richTextBox1.Location = new System.Drawing.Point(619, 14);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(159, 544);

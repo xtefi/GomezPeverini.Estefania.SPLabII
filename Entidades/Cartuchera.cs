@@ -20,7 +20,16 @@ namespace Entidades
         #region PROPIEDADES
         public List<Utiles> Utiles { get => this.utiles; }
         public string Nombre { get => this.nombre; set => this.nombre = value; }
-        public int Capacidad { get => this.capacidad; set => this.capacidad = value; }
+        public int Capacidad 
+        { 
+            get => this.capacidad;
+            set {
+                if(value < 25)
+                {
+                    this.capacidad = value;
+                }
+            } 
+        }
         private float PrecioTotal 
         { 
             get

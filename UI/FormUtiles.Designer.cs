@@ -60,6 +60,10 @@ namespace UI
             this.lblFormaSacapuntas = new System.Windows.Forms.Label();
             this.btnEditarUtilSeleccionado = new System.Windows.Forms.Button();
             this.btnConfirmaModificacion = new System.Windows.Forms.Button();
+            this.btnSerializaXml = new System.Windows.Forms.Button();
+            this.btnDeserealizaXml = new System.Windows.Forms.Button();
+            this.btnSerializaJson = new System.Windows.Forms.Button();
+            this.btnDeseralizaJson = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgdUtilesDisponibles)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gbxUtiles.SuspendLayout();
@@ -78,7 +82,7 @@ namespace UI
             this.dgdUtilesDisponibles.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgdUtilesDisponibles.Name = "dgdUtilesDisponibles";
             this.dgdUtilesDisponibles.RowTemplate.Height = 25;
-            this.dgdUtilesDisponibles.Size = new System.Drawing.Size(734, 180);
+            this.dgdUtilesDisponibles.Size = new System.Drawing.Size(647, 199);
             this.dgdUtilesDisponibles.TabIndex = 6;
             // 
             // rbtGomas
@@ -162,7 +166,7 @@ namespace UI
             this.gbxUtiles.Controls.Add(this.tbxPrecio);
             this.gbxUtiles.Controls.Add(this.lblPrecio);
             this.gbxUtiles.Controls.Add(this.lblMarca);
-            this.gbxUtiles.Location = new System.Drawing.Point(12, 273);
+            this.gbxUtiles.Location = new System.Drawing.Point(14, 292);
             this.gbxUtiles.Name = "gbxUtiles";
             this.gbxUtiles.Size = new System.Drawing.Size(182, 96);
             this.gbxUtiles.TabIndex = 13;
@@ -204,7 +208,7 @@ namespace UI
             // btnConfirmar
             // 
             this.btnConfirmar.BackColor = System.Drawing.Color.Wheat;
-            this.btnConfirmar.Location = new System.Drawing.Point(604, 277);
+            this.btnConfirmar.Location = new System.Drawing.Point(606, 296);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(142, 49);
             this.btnConfirmar.TabIndex = 14;
@@ -216,7 +220,7 @@ namespace UI
             // 
             this.gbxGoma.Controls.Add(this.tbxFormaGoma);
             this.gbxGoma.Controls.Add(this.lblForma);
-            this.gbxGoma.Location = new System.Drawing.Point(402, 273);
+            this.gbxGoma.Location = new System.Drawing.Point(404, 292);
             this.gbxGoma.Name = "gbxGoma";
             this.gbxGoma.Size = new System.Drawing.Size(170, 59);
             this.gbxGoma.TabIndex = 18;
@@ -245,7 +249,7 @@ namespace UI
             this.gbxLapiz.Controls.Add(this.tbxColorLapiz);
             this.gbxLapiz.Controls.Add(this.lblTamanoLapiz);
             this.gbxLapiz.Controls.Add(this.lblColorLapiz);
-            this.gbxLapiz.Location = new System.Drawing.Point(200, 273);
+            this.gbxLapiz.Location = new System.Drawing.Point(202, 292);
             this.gbxLapiz.Name = "gbxLapiz";
             this.gbxLapiz.Size = new System.Drawing.Size(196, 96);
             this.gbxLapiz.TabIndex = 18;
@@ -292,7 +296,7 @@ namespace UI
             this.gbxSacapuntas.Controls.Add(this.lblMaterial);
             this.gbxSacapuntas.Controls.Add(this.tbxFormaSacapuntas);
             this.gbxSacapuntas.Controls.Add(this.lblFormaSacapuntas);
-            this.gbxSacapuntas.Location = new System.Drawing.Point(200, 273);
+            this.gbxSacapuntas.Location = new System.Drawing.Point(202, 292);
             this.gbxSacapuntas.Name = "gbxSacapuntas";
             this.gbxSacapuntas.Size = new System.Drawing.Size(333, 96);
             this.gbxSacapuntas.TabIndex = 19;
@@ -363,7 +367,7 @@ namespace UI
             // btnConfirmaModificacion
             // 
             this.btnConfirmaModificacion.BackColor = System.Drawing.Color.Wheat;
-            this.btnConfirmaModificacion.Location = new System.Drawing.Point(604, 332);
+            this.btnConfirmaModificacion.Location = new System.Drawing.Point(606, 351);
             this.btnConfirmaModificacion.Name = "btnConfirmaModificacion";
             this.btnConfirmaModificacion.Size = new System.Drawing.Size(142, 49);
             this.btnConfirmaModificacion.TabIndex = 21;
@@ -371,12 +375,60 @@ namespace UI
             this.btnConfirmaModificacion.UseVisualStyleBackColor = false;
             this.btnConfirmaModificacion.Click += new System.EventHandler(this.btnConfirmaModificacion_Click);
             // 
+            // btnSerializaXml
+            // 
+            this.btnSerializaXml.BackColor = System.Drawing.Color.PeachPuff;
+            this.btnSerializaXml.Location = new System.Drawing.Point(662, 86);
+            this.btnSerializaXml.Name = "btnSerializaXml";
+            this.btnSerializaXml.Size = new System.Drawing.Size(94, 45);
+            this.btnSerializaXml.TabIndex = 22;
+            this.btnSerializaXml.Text = "Serializar lápiz xml";
+            this.btnSerializaXml.UseVisualStyleBackColor = false;
+            this.btnSerializaXml.Click += new System.EventHandler(this.btnSerializaXml_Click);
+            // 
+            // btnDeserealizaXml
+            // 
+            this.btnDeserealizaXml.BackColor = System.Drawing.Color.PeachPuff;
+            this.btnDeserealizaXml.Location = new System.Drawing.Point(662, 137);
+            this.btnDeserealizaXml.Name = "btnDeserealizaXml";
+            this.btnDeserealizaXml.Size = new System.Drawing.Size(94, 45);
+            this.btnDeserealizaXml.TabIndex = 23;
+            this.btnDeserealizaXml.Text = "Deserializar lápiz xml";
+            this.btnDeserealizaXml.UseVisualStyleBackColor = false;
+            this.btnDeserealizaXml.Click += new System.EventHandler(this.btnDeserealizaXml_Click);
+            // 
+            // btnSerializaJson
+            // 
+            this.btnSerializaJson.BackColor = System.Drawing.Color.PeachPuff;
+            this.btnSerializaJson.Location = new System.Drawing.Point(662, 188);
+            this.btnSerializaJson.Name = "btnSerializaJson";
+            this.btnSerializaJson.Size = new System.Drawing.Size(94, 45);
+            this.btnSerializaJson.TabIndex = 24;
+            this.btnSerializaJson.Text = "Serializar lápiz json";
+            this.btnSerializaJson.UseVisualStyleBackColor = false;
+            this.btnSerializaJson.Click += new System.EventHandler(this.btnSerializaJson_Click);
+            // 
+            // btnDeseralizaJson
+            // 
+            this.btnDeseralizaJson.BackColor = System.Drawing.Color.PeachPuff;
+            this.btnDeseralizaJson.Location = new System.Drawing.Point(662, 239);
+            this.btnDeseralizaJson.Name = "btnDeseralizaJson";
+            this.btnDeseralizaJson.Size = new System.Drawing.Size(94, 45);
+            this.btnDeseralizaJson.TabIndex = 25;
+            this.btnDeseralizaJson.Text = "Deserializar lápiz json";
+            this.btnDeseralizaJson.UseVisualStyleBackColor = false;
+            this.btnDeseralizaJson.Click += new System.EventHandler(this.btnDeseralizaJson_Click);
+            // 
             // FormUtiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(760, 394);
+            this.ClientSize = new System.Drawing.Size(760, 414);
+            this.Controls.Add(this.btnDeseralizaJson);
+            this.Controls.Add(this.btnSerializaJson);
+            this.Controls.Add(this.btnDeserealizaXml);
+            this.Controls.Add(this.btnSerializaXml);
             this.Controls.Add(this.btnConfirmaModificacion);
             this.Controls.Add(this.btnEditarUtilSeleccionado);
             this.Controls.Add(this.gbxSacapuntas);
@@ -442,5 +494,9 @@ namespace UI
         private System.Windows.Forms.Label lblConDeposito;
         private System.Windows.Forms.Button btnEditarUtilSeleccionado;
         private System.Windows.Forms.Button btnConfirmaModificacion;
+        private System.Windows.Forms.Button btnSerializaXml;
+        private System.Windows.Forms.Button btnDeserealizaXml;
+        private System.Windows.Forms.Button btnSerializaJson;
+        private System.Windows.Forms.Button btnDeseralizaJson;
     }
 }

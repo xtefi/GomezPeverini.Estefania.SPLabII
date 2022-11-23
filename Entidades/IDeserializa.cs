@@ -9,5 +9,6 @@ namespace Entidades
     public interface IDeserializa
     {
         Lapiz LeerXml();
+        Lapiz LeerJson();
     }
 }

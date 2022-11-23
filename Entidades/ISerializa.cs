@@ -8,7 +8,7 @@ namespace Entidades
 {
     public interface ISerializa
     {
-        public void GuardarXml<T>(T objeto) where T : Lapiz;
-        public void GuardarJson<T>(T objeto) where T : Lapiz;
+        void GuardarXml<T>(T objeto) where T : Lapiz;
+        void GuardarJson<T>(T objeto) where T : Lapiz;
     }
 }
