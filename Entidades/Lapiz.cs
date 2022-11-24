@@ -22,15 +22,7 @@ namespace Entidades
 
         public int Id { get => this.id; }
         public string Color { get => this.color; set => this.color = value; }
-        public string Tamano
-        {
-            get => this.tamano;
-            set
-            {
-                if(StringExtension.ContarLetras(value) == 2)
-                    this.tamano = value;
-            }
-        }
+        public string Tamano { get => this.tamano; set => this.tamano = value; }
 
         public Lapiz()
         {

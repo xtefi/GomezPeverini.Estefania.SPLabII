@@ -350,7 +350,7 @@ namespace UI
                     this.lblHora.Text = $"El producto se borrará en {i}";
                     if (i == 0)
                     {
-                        this.lblHora.Text = "No hay marcha atrás.";
+                        this.lblHora.Text = "Producto eliminado.";
                     }
                     if(i < 0)
                     {

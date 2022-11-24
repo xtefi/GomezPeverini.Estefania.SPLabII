@@ -34,18 +34,13 @@ namespace Entidades
             } 
         }
         /// <summary>
-        /// Devuelve el precio total de la cartuchera
+        /// Devuelve el precio total de la cartuchera - Método de extensión en clase FloatExtension
         /// </summary>
         private float PrecioTotal 
         { 
             get
             {
-                float aux=0;
-                foreach (Utiles item in this.utiles)
-                {
-                    aux += item.Precio;
-                }
-                return aux;
+                return FloatExtension.SumarPreciosListaUtiles(this.utiles);
             }
         }
         #endregion
