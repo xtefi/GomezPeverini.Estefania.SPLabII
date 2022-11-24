@@ -64,6 +64,7 @@ namespace UI
             this.btnDeserealizaXml = new System.Windows.Forms.Button();
             this.btnSerializaJson = new System.Windows.Forms.Button();
             this.btnDeseralizaJson = new System.Windows.Forms.Button();
+            this.lblHora = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgdUtilesDisponibles)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gbxUtiles.SuspendLayout();
@@ -419,12 +420,22 @@ namespace UI
             this.btnDeseralizaJson.UseVisualStyleBackColor = false;
             this.btnDeseralizaJson.Click += new System.EventHandler(this.btnDeseralizaJson_Click);
             // 
+            // lblHora
+            // 
+            this.lblHora.ForeColor = System.Drawing.Color.Aqua;
+            this.lblHora.Location = new System.Drawing.Point(665, 18);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(83, 60);
+            this.lblHora.TabIndex = 26;
+            this.lblHora.Text = " ";
+            // 
             // FormUtiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
             this.ClientSize = new System.Drawing.Size(760, 414);
+            this.Controls.Add(this.lblHora);
             this.Controls.Add(this.btnDeseralizaJson);
             this.Controls.Add(this.btnSerializaJson);
             this.Controls.Add(this.btnDeserealizaXml);
@@ -498,5 +509,6 @@ namespace UI
         private System.Windows.Forms.Button btnDeserealizaXml;
         private System.Windows.Forms.Button btnSerializaJson;
         private System.Windows.Forms.Button btnDeseralizaJson;
+        private System.Windows.Forms.Label lblHora;
     }
 }

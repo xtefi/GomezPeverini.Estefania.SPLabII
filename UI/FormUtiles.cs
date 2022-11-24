@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
@@ -14,51 +15,98 @@ namespace UI
     public partial class FormUtiles : Form
     {
         private Lapiz lapizAux;
+        delegate void MiDelegado(int i);
         public FormUtiles()
         {
             InitializeComponent();
             LimpiarGroupBoxes();
+
         }
 
         #region CARGA DE DATOS
         private void rbtLapices_CheckedChanged(object sender, EventArgs e)
         {
-            dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
+            try
+            {
+                dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void rbtSacapuntas_CheckedChanged(object sender, EventArgs e)
         {
-            dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();
+            try
+            {
+                dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void rbtGomas_CheckedChanged(object sender, EventArgs e)
         {
-            dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
+            try
+            {
+                dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
         #endregion
 
         #region ELIMINAR UTIL
         private void btnEliminaUtil_Click(object sender, EventArgs e)
         {
+            Task.Run(MostrarMensajeProductoBorrado);
             //DataGridViewRow selectedRow = dgdUtilesDisponibles.Rows[0];
             //string cellValue = Convert.ToString(selectedRow.Cells["Id"].Value);
-            if(rbtGomas.Checked == true)
+            if (rbtGomas.Checked == true)
             {
-                Goma selected = (Goma)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
-                GestorDB.Delete(selected, selected.Id);
-                dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
+                try
+                {
+                    Goma selected = (Goma)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                    GestorDB.Delete(selected, selected.Id);
+                    dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else if(rbtLapices.Checked == true)
             {
-                Lapiz selected = (Lapiz)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
-                GestorDB.Delete(selected, selected.Id);
-                dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
+                try
+                {
+                    Lapiz selected = (Lapiz)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                    GestorDB.Delete(selected, selected.Id);
+                    dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
-                Sacapuntas selected = (Sacapuntas)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
-                GestorDB.Delete(selected, selected.Id);
-                dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();
+                try
+                {
+                    Sacapuntas selected = (Sacapuntas)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                    GestorDB.Delete(selected, selected.Id);
+                    dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+               
             }
 
         }
@@ -259,6 +307,9 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// Carga el lapiz seleccionado desde la grilla para luego serializarse
+        /// </summary>
         private void CargarLapiz()
         {
             try
@@ -273,6 +324,9 @@ namespace UI
            
         }
         #endregion
+        /// <summary>
+        /// Esconde y limpia los campos utilizados para agregar/editar útiles
+        /// </summary>
         private void LimpiarGroupBoxes()
         {
             gbxUtiles.Visible = false;
@@ -285,6 +339,48 @@ namespace UI
             tbxTamanoLapiz.Text = string.Empty;
             tbxFormaGoma.Text = string.Empty;
             tbxMaterialSacapuntas.Text = string.Empty;
+        }
+
+        /// <summary>
+        /// Muestra un mensaje con un contador
+        /// </summary>
+        /// <param name="i"></param>
+        private void MensajeProductoBorrado(int i)
+        {
+            try
+            {
+                if (this.InvokeRequired)
+                {
+                    MiDelegado llamador = new MiDelegado(MensajeProductoBorrado);
+                    object[] args = { i };
+                    this.BeginInvoke(llamador, args);
+                }
+                else
+                {
+                    this.lblHora.Text = $"El producto se borrará en {i}";
+                    if (i == 0)
+                    {
+                        this.lblHora.Text = "No hay marcha atrás.";
+                    }
+                    if(i < 0)
+                    {
+                        this.lblHora.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void MostrarMensajeProductoBorrado()
+        {
+            for (int i = 3; i > -2; i--)
+            {
+                MensajeProductoBorrado(i);
+                Thread.Sleep(1000);
+            }
+
         }
     }
 }
