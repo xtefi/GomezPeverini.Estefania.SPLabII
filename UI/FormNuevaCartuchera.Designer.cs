@@ -45,8 +45,10 @@ namespace UI
             this.rbtVerLapices = new System.Windows.Forms.RadioButton();
             this.rbtVerGomas = new System.Windows.Forms.RadioButton();
             this.gbxUtilesDisponibles = new System.Windows.Forms.GroupBox();
+            this.rbtFibron = new System.Windows.Forms.RadioButton();
             this.btnAgregarUtil = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnResaltar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacidadCartuchera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgdCartucheras)).BeginInit();
             this.gbxNuevaCartuchera.SuspendLayout();
@@ -230,15 +232,28 @@ namespace UI
             // 
             // gbxUtilesDisponibles
             // 
+            this.gbxUtilesDisponibles.Controls.Add(this.rbtFibron);
             this.gbxUtilesDisponibles.Controls.Add(this.rbtVerGomas);
             this.gbxUtilesDisponibles.Controls.Add(this.rbtVerSacapuntas);
             this.gbxUtilesDisponibles.Controls.Add(this.rbtVerLapices);
             this.gbxUtilesDisponibles.Location = new System.Drawing.Point(16, 312);
             this.gbxUtilesDisponibles.Name = "gbxUtilesDisponibles";
-            this.gbxUtilesDisponibles.Size = new System.Drawing.Size(338, 52);
+            this.gbxUtilesDisponibles.Size = new System.Drawing.Size(474, 52);
             this.gbxUtilesDisponibles.TabIndex = 14;
             this.gbxUtilesDisponibles.TabStop = false;
             this.gbxUtilesDisponibles.Text = "Útiles disponibles para agregar en cartuchera";
+            // 
+            // rbtFibron
+            // 
+            this.rbtFibron.AutoSize = true;
+            this.rbtFibron.Location = new System.Drawing.Point(338, 24);
+            this.rbtFibron.Name = "rbtFibron";
+            this.rbtFibron.Size = new System.Drawing.Size(103, 22);
+            this.rbtFibron.TabIndex = 14;
+            this.rbtFibron.TabStop = true;
+            this.rbtFibron.Text = "Ver fibrones";
+            this.rbtFibron.UseVisualStyleBackColor = true;
+            this.rbtFibron.CheckedChanged += new System.EventHandler(this.rbtFibron_CheckedChanged);
             // 
             // btnAgregarUtil
             // 
@@ -261,12 +276,25 @@ namespace UI
             this.richTextBox1.TabIndex = 16;
             this.richTextBox1.Text = "";
             // 
+            // btnResaltar
+            // 
+            this.btnResaltar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnResaltar.Location = new System.Drawing.Point(511, 442);
+            this.btnResaltar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnResaltar.Name = "btnResaltar";
+            this.btnResaltar.Size = new System.Drawing.Size(100, 45);
+            this.btnResaltar.TabIndex = 17;
+            this.btnResaltar.Text = "Resaltar";
+            this.btnResaltar.UseVisualStyleBackColor = false;
+            this.btnResaltar.Click += new System.EventHandler(this.btnResaltar_Click);
+            // 
             // FormNuevaCartuchera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
             this.ClientSize = new System.Drawing.Size(790, 569);
+            this.Controls.Add(this.btnResaltar);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnAgregarUtil);
             this.Controls.Add(this.gbxUtilesDisponibles);
@@ -312,5 +340,7 @@ namespace UI
         private System.Windows.Forms.GroupBox gbxUtilesDisponibles;
         private System.Windows.Forms.Button btnAgregarUtil;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RadioButton rbtFibron;
+        private System.Windows.Forms.Button btnResaltar;
     }
 }

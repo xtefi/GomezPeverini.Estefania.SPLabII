@@ -142,7 +142,7 @@ namespace UI
             // btnEliminaUtil
             // 
             this.btnEliminaUtil.BackColor = System.Drawing.Color.Wheat;
-            this.btnEliminaUtil.Location = new System.Drawing.Point(425, 18);
+            this.btnEliminaUtil.Location = new System.Drawing.Point(415, 18);
             this.btnEliminaUtil.Name = "btnEliminaUtil";
             this.btnEliminaUtil.Size = new System.Drawing.Size(108, 60);
             this.btnEliminaUtil.TabIndex = 11;
@@ -153,7 +153,7 @@ namespace UI
             // btnNuevoUtil
             // 
             this.btnNuevoUtil.BackColor = System.Drawing.Color.Wheat;
-            this.btnNuevoUtil.Location = new System.Drawing.Point(301, 18);
+            this.btnNuevoUtil.Location = new System.Drawing.Point(301, 20);
             this.btnNuevoUtil.Name = "btnNuevoUtil";
             this.btnNuevoUtil.Size = new System.Drawing.Size(108, 60);
             this.btnNuevoUtil.TabIndex = 12;
@@ -358,7 +358,7 @@ namespace UI
             // btnEditarUtilSeleccionado
             // 
             this.btnEditarUtilSeleccionado.BackColor = System.Drawing.Color.Wheat;
-            this.btnEditarUtilSeleccionado.Location = new System.Drawing.Point(551, 18);
+            this.btnEditarUtilSeleccionado.Location = new System.Drawing.Point(529, 20);
             this.btnEditarUtilSeleccionado.Name = "btnEditarUtilSeleccionado";
             this.btnEditarUtilSeleccionado.Size = new System.Drawing.Size(108, 60);
             this.btnEditarUtilSeleccionado.TabIndex = 20;

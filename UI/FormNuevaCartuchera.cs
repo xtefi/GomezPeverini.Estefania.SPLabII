@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using Entidades.Datos;
 
 namespace UI
 {
@@ -16,7 +17,15 @@ namespace UI
         private Cartuchera<Utiles> c1;
         private Cartuchera<Utiles> c2;
         private Cartuchera<Utiles> c3;
+        private Cartuchera<Utiles> c4;
         private List<Cartuchera<Utiles>> listaCartucheras;
+        private List<Fibron> listaFibrones;
+        private Fibron f1;
+        private Fibron f2;
+        private Fibron f3;
+
+        public Action<string> sinTintaEvento = Archivador.GuardarLogErrorFibron;
+
         public FormNuevaCartuchera()
         {
             InitializeComponent();
@@ -24,9 +33,24 @@ namespace UI
             c1 = new Cartuchera<Utiles>("Cartuchera de Banban", 7);
             c2 = new Cartuchera<Utiles>("Cartuchera de Mordecai", 14);
             c3 = new Cartuchera<Utiles>("Cartuchera de Ito", 15);
+            c4 = new Cartuchera<Utiles>("Fibrones", 4);
+
+            f1 = new Fibron("Mapped", 2, 10, "Verde");
+            f2 = new Fibron("Mapped", 4, 7, "Rojo");
+            f3 = new Fibron("Mapped", 6.25f, 2, "Azul");
+
             listaCartucheras.Add(c1);
             listaCartucheras.Add(c2);
             listaCartucheras.Add(c3);
+            listaCartucheras.Add(c4);
+
+            listaFibrones = new List<Fibron>();
+            listaFibrones.Add(f1);
+            listaFibrones.Add(f2);
+            listaFibrones.Add(f3);
+            c4 += f1;
+            c4 += f2;
+            c4 += f3;
             CargarDataGrid();
         }
 
@@ -138,7 +162,17 @@ namespace UI
         }
 
         #region CARGA DE DATOS
-
+        private void rbtFibron_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dgdUtilesDisponibles.DataSource = this.listaFibrones;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void rbtVerGomas_CheckedChanged_1(object sender, EventArgs e)
         {
             try
@@ -175,5 +209,41 @@ namespace UI
         }
         #endregion
 
+
+
+        private void btnResaltar_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            Cartuchera<Utiles> cartuchera = c4;//dgdCartucheras.SelectedRows[0].DataBoundItem as Cartuchera<Utiles>;
+            int resaltar = random.Next(1, 10);
+            Fibron fibronAux=null;
+
+            try
+            {
+                int fibronRandom = random.Next(0, cartuchera.Utiles.Count-1);
+                if (cartuchera.Utiles[fibronRandom] is Fibron)
+                {
+                    fibronAux = cartuchera.Utiles[fibronRandom] as Fibron;
+                    fibronAux.Resaltar(resaltar);
+                }               
+
+            }
+            catch(SinTintaExcepcion ex)
+            {
+                sinTintaEvento.Invoke(fibronAux.MostrarSinTinta()+"Se quiso restar"+" "+resaltar.ToString());
+                MessageBox.Show(ex.Message);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
+//3) Al atrapar la excepcion debera lanzar el evento “SinTintaEvento”
+//4) Crear un manejador de ese evento que escriba el fibron y cuanta tinta le faltó en el
+//archivo “errors.log”
+//En el form principal al cargarlo, crear la cartuchera con los 3 fibrones.
+//Agregar un botón que llame al método Resaltar() y le pase un random entre 1 y 10
+//El elemento de la cartuchera será elegido mediante un random
+//Dar respuesta amigable al usuario de lo que va sucediendo
 }

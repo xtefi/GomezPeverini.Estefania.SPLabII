@@ -10,10 +10,13 @@ namespace Entidades.Datos
     public class Archivador
     {
         private string ruta;
+        static string rutaLogFibron = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\errors.log";
         public Archivador(string ruta)
         {
             this.ruta = ruta;
         }
+
+        
 
         /// <summary>
         /// Escribe datos del tipo string en un archivo de logs. En caso de no existir el archivo, lo crea.
@@ -34,7 +37,7 @@ namespace Entidades.Datos
                 throw;
             }
         }
-        #region ARCHIVOS
+
         /// <summary>
         /// Valida que exista un archivo de texto y retorna todo su contenido. 
         /// En caso de no existir el archivo arroja una Excepcion.
@@ -55,6 +58,22 @@ namespace Entidades.Datos
                 throw new FileNotFoundException("No se encontró ningun archivo de logs para leer");
             }
         }
-        #endregion
+
+        public static void GuardarLogErrorFibron(string datos)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(rutaLogFibron, true))
+                {
+                    writer.WriteLine($"Logs del dia: {DateTime.Now.ToString()}--------------------------------------------");
+                    writer.WriteLine(datos);
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
     }
 }

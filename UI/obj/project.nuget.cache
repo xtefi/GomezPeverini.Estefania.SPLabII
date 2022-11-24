@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e0RKRvK04tzDewYTrWLbAPsxlUb6AvXxsfieHQ00brI3Sx636JcrITHcnulb/lgyDrdG5qlK5kJVlOSh5WbmCg==",
+  "dgSpecHash": "utVShx81AobybWBXSSS/5Y9xFfBXUa5c9rx/NDRARTLf7CY8i4aM+Um/bPd42wxQanV3xRUB5GyG3IW/7voUIw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\54113\\Desktop\\Nueva carpeta (2)\\GomezPeverini.Estefania.SPLabII\\UI\\UI.csproj",
+  "projectFilePath": "C:\\Users\\54113\\Desktop\\GomezPeverini.Estefania.SPLabII\\UI\\UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\54113\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\54113\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

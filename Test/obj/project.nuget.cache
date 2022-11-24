@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zzc1DWWdPABfqcsJ4HI2EUzU9Xg3+zSfDEYxc4SfOv2ZhT6Ig/obK+c2EUyeMKBKkMMch5Ab2a6mMNEjFAjaGw==",
+  "dgSpecHash": "syl9vgpqFtxkvXU7kd2D+X3GYT96I7e9RD+2g1xXKJvcivzwRF5WtrTQBOqM0MhMAg2ZhC386e0DsmbLqsn+UQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\54113\\Desktop\\Nueva carpeta (2)\\GomezPeverini.Estefania.SPLabII\\Test\\Test.csproj",
+  "projectFilePath": "C:\\Users\\54113\\Desktop\\GomezPeverini.Estefania.SPLabII\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\54113\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\54113\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",
