@@ -20,7 +20,6 @@ namespace UI
         {
             InitializeComponent();
             LimpiarGroupBoxes();
-
         }
 
         #region CARGA DE DATOS
@@ -66,47 +65,30 @@ namespace UI
         private void btnEliminaUtil_Click(object sender, EventArgs e)
         {
             Task.Run(MostrarMensajeProductoBorrado);
-            //DataGridViewRow selectedRow = dgdUtilesDisponibles.Rows[0];
-            //string cellValue = Convert.ToString(selectedRow.Cells["Id"].Value);
-            if (rbtGomas.Checked == true)
-            {
-                try
+            try 
+            {             
+                if (rbtGomas.Checked == true)
                 {
                     Goma selected = (Goma)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
                     GestorDB.Delete(selected, selected.Id);
                     dgdUtilesDisponibles.DataSource = GestorDB.LeerGomas();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            else if(rbtLapices.Checked == true)
-            {
-                try
+                else if(rbtLapices.Checked == true)
                 {
                     Lapiz selected = (Lapiz)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
                     GestorDB.Delete(selected, selected.Id);
                     dgdUtilesDisponibles.DataSource = GestorDB.LeerLapiz();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            else
-            {
-                try
+                else
                 {
                     Sacapuntas selected = (Sacapuntas)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
                     GestorDB.Delete(selected, selected.Id);
-                    dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();
+                    dgdUtilesDisponibles.DataSource = GestorDB.LeerSacapuntas();               
                 }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-               
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -177,36 +159,44 @@ namespace UI
             Lapiz lapiz;
             Goma goma;
             Sacapuntas sacapuntas;
-            if (rbtGomas.Checked is true)
+            try
             {
-                gbxGoma.Visible = true;
-                goma = (Goma)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
-                tbxMarca.Text = goma.Marca;
-                tbxPrecio.Text = goma.Precio.ToString();
-                tbxFormaGoma.Text = goma.Forma;
-            }
-            else if (rbtSacapuntas.Checked is true)
-            {
-                gbxSacapuntas.Visible = true;
-                sacapuntas =(Sacapuntas)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
-                tbxMarca.Text = sacapuntas.Marca;
-                tbxPrecio.Text = sacapuntas.Precio.ToString();
-                tbxMaterialSacapuntas.Text = sacapuntas.Material;
-                tbxFormaSacapuntas.Text = sacapuntas.Forma;
-                chbxDeposito.Checked = sacapuntas.ConDeposito;
-            }
-            else if (rbtLapices.Visible is true)
-            {
-                gbxLapiz.Visible = true;
-                lapiz = (Lapiz)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
-                tbxMarca.Text = lapiz.Marca;
-                tbxPrecio.Text = lapiz.Precio.ToString();
-                tbxColorLapiz.Text = lapiz.Color;
-                tbxTamanoLapiz.Text = lapiz.Tamano;
+                if (rbtGomas.Checked is true)
+                {
+                    gbxGoma.Visible = true;
+                    goma = (Goma)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                    tbxMarca.Text = goma.Marca;
+                    tbxPrecio.Text = goma.Precio.ToString();
+                    tbxFormaGoma.Text = goma.Forma;
+                }
+                else if (rbtSacapuntas.Checked is true)
+                {
+                    gbxSacapuntas.Visible = true;
+                    sacapuntas = (Sacapuntas)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                    tbxMarca.Text = sacapuntas.Marca;
+                    tbxPrecio.Text = sacapuntas.Precio.ToString();
+                    tbxMaterialSacapuntas.Text = sacapuntas.Material;
+                    tbxFormaSacapuntas.Text = sacapuntas.Forma;
+                    chbxDeposito.Checked = sacapuntas.ConDeposito;
+                }
+                else if (rbtLapices.Visible is true)
+                {
+                    gbxLapiz.Visible = true;
+                    lapiz = (Lapiz)dgdUtilesDisponibles.CurrentRow.DataBoundItem;
+                    tbxMarca.Text = lapiz.Marca;
+                    tbxPrecio.Text = lapiz.Precio.ToString();
+                    tbxColorLapiz.Text = lapiz.Color;
+                    tbxTamanoLapiz.Text = lapiz.Tamano;
 
+                }
+                else
+                    MessageBox.Show("Seleccione un útil para operar");
             }
-            else
-                MessageBox.Show("Seleccione un útil para operar");
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
         private void btnConfirmaModificacion_Click(object sender, EventArgs e)
         {
@@ -381,6 +371,26 @@ namespace UI
                 Thread.Sleep(1000);
             }
 
+        }
+        /// <summary>
+        /// Valido que solo se ingresen números
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tbxPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

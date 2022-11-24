@@ -179,7 +179,7 @@ namespace UI
             this.tbxMarca.Location = new System.Drawing.Point(64, 24);
             this.tbxMarca.Name = "tbxMarca";
             this.tbxMarca.Size = new System.Drawing.Size(100, 26);
-            this.tbxMarca.TabIndex = 3;
+            this.tbxMarca.TabIndex = 1;
             // 
             // tbxPrecio
             // 
@@ -187,6 +187,7 @@ namespace UI
             this.tbxPrecio.Name = "tbxPrecio";
             this.tbxPrecio.Size = new System.Drawing.Size(100, 26);
             this.tbxPrecio.TabIndex = 2;
+            this.tbxPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPrecio_KeyPress);
             // 
             // lblPrecio
             // 
@@ -233,7 +234,7 @@ namespace UI
             this.tbxFormaGoma.Location = new System.Drawing.Point(64, 19);
             this.tbxFormaGoma.Name = "tbxFormaGoma";
             this.tbxFormaGoma.Size = new System.Drawing.Size(100, 26);
-            this.tbxFormaGoma.TabIndex = 16;
+            this.tbxFormaGoma.TabIndex = 5;
             // 
             // lblForma
             // 
@@ -262,14 +263,14 @@ namespace UI
             this.tbxTamanoLapiz.Location = new System.Drawing.Point(76, 53);
             this.tbxTamanoLapiz.Name = "tbxTamanoLapiz";
             this.tbxTamanoLapiz.Size = new System.Drawing.Size(100, 26);
-            this.tbxTamanoLapiz.TabIndex = 17;
+            this.tbxTamanoLapiz.TabIndex = 7;
             // 
             // tbxColorLapiz
             // 
             this.tbxColorLapiz.Location = new System.Drawing.Point(76, 19);
             this.tbxColorLapiz.Name = "tbxColorLapiz";
             this.tbxColorLapiz.Size = new System.Drawing.Size(100, 26);
-            this.tbxColorLapiz.TabIndex = 16;
+            this.tbxColorLapiz.TabIndex = 6;
             // 
             // lblTamanoLapiz
             // 
@@ -327,7 +328,7 @@ namespace UI
             this.tbxMaterialSacapuntas.Location = new System.Drawing.Point(79, 52);
             this.tbxMaterialSacapuntas.Name = "tbxMaterialSacapuntas";
             this.tbxMaterialSacapuntas.Size = new System.Drawing.Size(100, 26);
-            this.tbxMaterialSacapuntas.TabIndex = 19;
+            this.tbxMaterialSacapuntas.TabIndex = 4;
             // 
             // lblMaterial
             // 
@@ -343,7 +344,7 @@ namespace UI
             this.tbxFormaSacapuntas.Location = new System.Drawing.Point(79, 19);
             this.tbxFormaSacapuntas.Name = "tbxFormaSacapuntas";
             this.tbxFormaSacapuntas.Size = new System.Drawing.Size(100, 26);
-            this.tbxFormaSacapuntas.TabIndex = 16;
+            this.tbxFormaSacapuntas.TabIndex = 3;
             // 
             // lblFormaSacapuntas
             // 
@@ -434,7 +435,7 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(760, 414);
+            this.ClientSize = new System.Drawing.Size(760, 409);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.btnDeseralizaJson);
             this.Controls.Add(this.btnSerializaJson);

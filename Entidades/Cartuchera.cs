@@ -96,6 +96,7 @@ namespace Entidades
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Nombre: {this.nombre}");
             sb.AppendLine($"Precio total: {this.PrecioTotal}");
+            sb.AppendLine($"Capacidad: {this.Capacidad}");
             foreach (Utiles item in this.utiles)
             {
                 if(item is Lapiz)
