@@ -239,7 +239,7 @@ namespace Entidades
 
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }
@@ -286,7 +286,7 @@ namespace Entidades
 
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }
